@@ -1,19 +1,32 @@
 <div class="to_do_item">
-  <p>
-    <% if to_do_item.completed? %>
-      <strike>
-        <span class="ready">Ready</span>
-        <span><%= to_do_item.title %>
-      </strike>
-    <% else %>
-      <span class="pendent"> Pendiente </span>
-      <strong><%= to_do_item.title %></strong>
-    <% end %>
-    <% if to_do_item.completed? %>
-      <span><%= link_to "Marcar como incompleta", uncomplete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %></span>
-    <% else %>
-      <span><%= link_to "Completar", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %></span>
-    <% end %>
-      <span><%= link_to "Eliminar tarea", to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :delete, data: { confirm: "Confirmas que deseas eliminar esta tarea?" } %></span>
-  </p>
+  <tbody>
+    <tr>
+      <% if to_do_item.completed? %>
+        <td>
+          <%= link_to "Marcar como incompleta", uncomplete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %>
+        </td>
+        <strike>
+            <td>
+              <span class="ready">Ready</span>
+            </td>
+            <td>
+              <span><%= to_do_item.title %>
+            </td>
+          </strike>
+      <% else %>
+        <td>
+          <%= link_to "Completar", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %>
+        </td>
+        <td>
+          <span class="pendent"> Pendiente </span>
+        </td>
+        <td>
+          <strong><%= to_do_item.title %></strong>
+        </td>  
+      <% end %>
+      <td>
+        <span><%= link_to "Eliminar tarea", to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :delete, data: { confirm: "Confirmas que deseas eliminar esta tarea?" } %></span>
+      </td>
+    </tr>
+  </tbody>
 </div>
