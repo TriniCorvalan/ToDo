@@ -5,5 +5,6 @@
     <% else %>
       <span class="pendent"> Pendiente </span>
     <% end %>
+    <span><%= link_to "Eliminar tarea", to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :delete, data: { confirm: "Confirmas que deseas eliminar esta tarea?" } %></span>
   </p>
 </div>

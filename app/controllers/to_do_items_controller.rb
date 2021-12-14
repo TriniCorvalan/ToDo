@@ -6,6 +6,16 @@ class ToDoItemsController < ApplicationController
     redirect_to @to_do_list
   end
 
+  def destroy
+    @to_do_item = @to_do_list.to_do_items.find(params[:id])
+    if @to_do_item.destroy
+      flash[:notice] = "Se eliminó la tarea"
+    else
+      flash[:alert] = "No se pudo borrar la tarea"
+    end
+    redirect_to @to_do_list
+   end
+
   private
     def set_to_do_list
       @to_do_list = ToDoList.find(params[:to_do_list_id])
