@@ -2,7 +2,11 @@ class ToDoItemsController < ApplicationController
   before_action :set_to_do_list
 
   def create
-    @to_do_item = @to_do_list.to_do_items.create(to_do_item_params)
+    if @to_do_item = @to_do_list.to_do_items.create(to_do_item_params)
+      flash[:notice] = "Se agregó una tarea"
+    else
+      flash[:alert] = "No se pudo agregar la tarea"
+    end
     redirect_to @to_do_list
   end
 
