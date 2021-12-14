@@ -12,6 +12,6 @@ class ToDoItemsController < ApplicationController
     end
 
     def to_do_item_params
-      params[:to_do_item].permit(:name, :completed, :to_do_list_id)
+      params[:to_do_item].permit(:title, :completed, :to_do_list_id)
     end
 end
