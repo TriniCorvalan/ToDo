@@ -1,0 +1,9 @@
+<div>
+  <p><%= to_do_item.title %>
+    <% if to_do_item.completed? %>
+      <span class="ready"> Ready </span>
+    <% else %>
+      <span class="pendent"> Pendiente </span>
+    <% end %>
+  </p>
+</div>
