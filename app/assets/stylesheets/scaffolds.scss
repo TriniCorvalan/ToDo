@@ -63,3 +63,19 @@ div.actions {
 
 label {
   display: block; }
+
+p label {
+  display: inline-block;
+}
+
+#to_do_items* {
+  margin-left: 1rem;
+}
+
+.ready {
+  color: green;
+}
+
+.pendent {
+  color: red;
+}
