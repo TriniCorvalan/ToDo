@@ -1,0 +1,19 @@
+<%= form_for([@to_do_list, @to_do_list.to_do_items.build]) do |form| %>
+  <div class="field">
+    <p>
+      <%= form.label :title, "Tarea" %>
+      <%= form.text_field :title %>
+    </p>
+  </div>
+
+  <div class="field">
+    <p>
+      <%= form.check_box :completed %>
+      <%= form.label :completed, "Completada" %>
+    </p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
