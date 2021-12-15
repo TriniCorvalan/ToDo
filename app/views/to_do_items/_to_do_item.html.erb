@@ -1,0 +1,26 @@
+<tr class="to_do_item">
+  <% if to_do_item.completed? %>
+    <td>
+      <%= link_to "Marcar como incompleta", uncomplete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %>
+    </td>
+    <td>
+      <strike><span class="ready"> Ready </span></strike>
+    </td>
+    <td>
+      <strike><span><%= to_do_item.title %></span></strike>
+    </td>
+  <% else %>
+    <td>
+      <%= link_to "Completar", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %>
+    </td>
+    <td>
+      <span class="pendent"> Pendiente </span>
+    </td>
+    <td>
+      <strong><%= to_do_item.title %></strong>
+    </td>  
+  <% end %>
+  <td>
+    <span><%= link_to "Eliminar tarea", to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :delete, data: { confirm: "Confirmas que deseas eliminar esta tarea?" } %></span>
+  </td>
+</tr>

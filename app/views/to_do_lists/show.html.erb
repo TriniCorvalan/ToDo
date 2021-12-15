@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Título:</strong>
+  <%= @to_do_list.title %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @to_do_list.description %>
+</p>
+
+<div id="to_do_items">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Status</th>
+        <th>Título de la tarea</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <%= render @to_do_list.to_do_items %>
+  </table>
+  <div id="form">
+    <strong>Nueva tarea</strong>
+    <%= render "to_do_items/form" %>
+  </div>
+</div>
+
+<%= link_to 'Editar Lista', edit_to_do_list_path(@to_do_list) %> |
+<%= link_to 'Todas las listas', to_do_lists_path %>
