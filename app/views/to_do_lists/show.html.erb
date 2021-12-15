@@ -21,11 +21,11 @@
       </tr>
     </thead>
     <%= render @to_do_list.to_do_items %>
-    <div id="form">
-      <strong>Nueva tarea</strong>
-      <%= render "to_do_items/form" %>
-    </div>
   </table>
+  <div id="form">
+    <strong>Nueva tarea</strong>
+    <%= render "to_do_items/form" %>
+  </div>
 </div>
 
 <%= link_to 'Editar Lista', edit_to_do_list_path(@to_do_list) %> |
